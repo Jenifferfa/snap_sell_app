@@ -5,13 +5,13 @@ void main() {
 }
 
 class SnapSellApp extends StatelessWidget {
+  const SnapSellApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'SnapSell',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: LoginScreen(),
     );
   }
@@ -21,6 +21,8 @@ class SnapSellApp extends StatelessWidget {
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +63,8 @@ class ProductFormScreen extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
 
+  ProductFormScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,6 +100,8 @@ class ProductFormScreen extends StatelessWidget {
 
 // Lista de produtos cadastrados
 class ProductListScreen extends StatefulWidget {
+  const ProductListScreen({super.key});
+
   @override
   _ProductListScreenState createState() => _ProductListScreenState();
 }

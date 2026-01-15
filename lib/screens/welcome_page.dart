@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -6,66 +7,79 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.all(24.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.view_in_ar_rounded, size: 48, color: Colors.deepPurple),
-                SizedBox(height: 8),
-                Text(
-                  "SnapSell",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepPurple,
+      backgroundColor: const Color(0xFFF8F7FB),
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Logo do SnapSell
+              Column(
+                children: [
+                  Image.asset(
+                    'assets/logo.png', // coloque sua imagem em assets/
+                    width: 150,
+                    height: 150,
                   ),
-                ),
-                SizedBox(height: 24),
-                Image.asset("assets/logo.png", height: 160),
-                SizedBox(height: 24),
-                Text(
-                  "Bem vindo!",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepPurple,
-                  ),
-                ),
-                SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Fotografe, publique, venda. Sua loja online\npronta em minutos, sem complicação.",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    SizedBox(width: 8),
-                    Icon(Icons.translate, color: Colors.blueAccent),
-                    Icon(Icons.volume_up, color: Colors.grey[700]),
-                  ],
-                ),
-                SizedBox(height: 32),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Navegação para próxima tela aqui
-                    },
-                    child: Text("Iniciar"),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
-                      padding: EdgeInsets.symmetric(vertical: 14),
-                      textStyle: TextStyle(fontSize: 16),
+                  const SizedBox(height: 16),
+                  const Text(
+                    'SnapSell',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
                     ),
                   ),
-                )
-              ],
-            ),
+                ],
+              ),
+
+              const SizedBox(height: 32),
+
+              const Text(
+                'Bem vindo!',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.purple,
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              const Text(
+                'Fotografe, publique, venda. Sua loja online pronta em minutos, sem complicação.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, color: Colors.black54),
+              ),
+
+              const SizedBox(height: 32),
+
+              SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginPage(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purple,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  child: const Text(
+                    'Iniciar',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
